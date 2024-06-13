@@ -1,147 +1,158 @@
-<section class="sidebar">
-  <div class="sidebar-header">
-    <span class="header-title">Запись на прием</span>
-    <div class="header-close_btn">
-      <span>Закрыть</span>
-      <button mat-fab><mat-icon >clear</mat-icon></button>
-    </div>
-  </div>
-  <form action="#">
-    <section class="sidebar-content">
-    
-      <span class="content-title">Данные пациента</span>
-  
-      <div class="content-form">
-        <mat-form-field appearance="outline">
-          <mat-label>Фамилия</mat-label>
-          <input matInput placeholder=" ">
-        </mat-form-field>
-  
-        <div class="form-group">
-          <mat-form-field appearance="outline">
-            <mat-label>Имя</mat-label>
-            <input matInput placeholder=" ">
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Отчетсво</mat-label>
-            <input matInput placeholder=" ">
-          </mat-form-field>
-        </div>
-  
-         <div class="form-group">
-          <mat-form-field appearance="outline">
-            <mat-label>Дата рождения</mat-label>
-            <input matInput [matDatepicker]="birthday">
-            <mat-datepicker-toggle matIconSuffix [for]="birthday">
-              <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
-            </mat-datepicker-toggle>
-            <mat-datepicker #birthday></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-select matNativeControl placeholder="Пол">
-              <mat-option value="male">Мужской</mat-option>
-              <mat-option value="female">Женский</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-  
-        <div class="form-group">
-          <mat-form-field appearance="outline">
-            <mat-label>Телефон</mat-label>
-            <input matInput placeholder=" ">
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Дополнительный телефон</mat-label>
-            <input matInput placeholder=" ">
-          </mat-form-field>
+<mat-drawer-container>
+  <mat-drawer #drawer opened="false" mode="over" position="end">
+    <section class="sidebar">
+      <div class="sidebar-header">
+        <span class="header-title">Запись на прием</span>
+        <div class="header-close_btn" (click)="drawer.toggle()">
+          <span>Закрыть</span>
+          <button mat-fab><mat-icon >clear</mat-icon></button>
         </div>
       </div>
-    </section>
-  
-    <section class="sidebar-content">
-      <span class="content-title">Дата и время приема</span>
-  
-      <div class="content-form">
-        <div class="form-group">
-          <mat-form-field appearance="outline">
-            <mat-label>Дата</mat-label>
-            <input matInput [matDatepicker]="date_of_recording">
-            <!-- <mat-icon matSuffix>clear</mat-icon> -->
-            <mat-datepicker-toggle matIconSuffix [for]="date_of_recording">
-              <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
-            </mat-datepicker-toggle>
-            <mat-datepicker #date_of_recording></mat-datepicker>
-          </mat-form-field>
-  
-          <div class="form-subgroup">
+      <form action="#">
+        <section class="sidebar-content">
+        
+          <span class="content-title">Данные пациента</span>
+      
+          <div class="content-form">
             <mat-form-field appearance="outline">
-              <mat-label>Начало</mat-label>
-              <input matInput placeholder=" ">
-            </mat-form-field><mat-form-field appearance="outline">
-              <mat-label>Конец</mat-label>
+              <mat-label>Фамилия</mat-label>
               <input matInput placeholder=" ">
             </mat-form-field>
+      
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Имя</mat-label>
+                <input matInput placeholder=" ">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Отчетсво</mat-label>
+                <input matInput placeholder=" ">
+              </mat-form-field>
+            </div>
+      
+             <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Дата рождения</mat-label>
+                <input matInput [matDatepicker]="birthday">
+                <mat-datepicker-toggle matIconSuffix [for]="birthday">
+                  <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #birthday></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-select matNativeControl placeholder="Пол">
+                  <mat-option value="male">Мужской</mat-option>
+                  <mat-option value="female">Женский</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+      
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Телефон</mat-label>
+                <input matInput placeholder=" ">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Дополнительный телефон</mat-label>
+                <input matInput placeholder=" ">
+              </mat-form-field>
+            </div>
           </div>
-  
-        </div>
-      </div>
-    </section>
-  
-    <section class="sidebar-content">
-      <span class="content-title">Данные о враче</span>
-  
-      <div class="content-form">
-        <div class="form-group">
+        </section>
+      
+        <section class="sidebar-content">
+          <span class="content-title">Дата и время приема</span>
+      
+          <div class="content-form">
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Дата</mat-label>
+                <input matInput [matDatepicker]="date_of_recording">
+                <!-- <mat-icon matSuffix>clear</mat-icon> -->
+                <mat-datepicker-toggle matIconSuffix [for]="date_of_recording">
+                  <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #date_of_recording></mat-datepicker>
+              </mat-form-field>
+      
+              <div class="form-subgroup">
+                <mat-form-field appearance="outline">
+                  <mat-label>Начало</mat-label>
+                  <input matInput placeholder=" ">
+                </mat-form-field><mat-form-field appearance="outline">
+                  <mat-label>Конец</mat-label>
+                  <input matInput placeholder=" ">
+                </mat-form-field>
+              </div>
+      
+            </div>
+          </div>
+        </section>
+      
+        <section class="sidebar-content">
+          <span class="content-title">Данные о враче</span>
+      
+          <div class="content-form">
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Врач</mat-label>
+                <mat-select matNativeControl placeholder="">
+                  <mat-option value="Novikov">Новиков А.В</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Специальность</mat-label>
+                <mat-select matNativeControl placeholder="">
+                  <mat-option value="Andrologist">Андролог</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+      
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Рекомендовавший врач</mat-label>
+                <mat-select matNativeControl placeholder="">
+                  <mat-option value="Novikov">Новиков А.В</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Канал привлечения</mat-label>
+                <mat-select matNativeControl placeholder="">
+                  <mat-option value="social_networks">Соц. сети</mat-option>
+                  <mat-option value="friends">Друзья, знакомые</mat-option>
+                  <mat-option value="attending_physician">Лечащий врач</mat-option>
+                  <mat-option value="advertisement">Реклама</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+      
+            <mat-form-field appearance="outline">
+              <textarea matInput placeholder="Цель визита"></textarea>
+            </mat-form-field>
+          </div>
+        </section>
+      
+        <section class="sidebar-content">
+          <span class="content-title">Добавить услугу</span>
+      
           <mat-form-field appearance="outline">
-            <mat-label>Врач</mat-label>
-            <mat-select matNativeControl placeholder="">
-              <mat-option value="Novikov">Новиков А.В</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Специальность</mat-label>
+            <mat-label>Услуга</mat-label>
             <mat-select matNativeControl placeholder="">
               <mat-option value="Andrologist">Андролог</mat-option>
             </mat-select>
           </mat-form-field>
-        </div>
-  
-        <div class="form-group">
-          <mat-form-field appearance="outline">
-            <mat-label>Рекомендовавший врач</mat-label>
-            <mat-select matNativeControl placeholder="">
-              <mat-option value="Novikov">Новиков А.В</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Канал привлечения</mat-label>
-            <mat-select matNativeControl placeholder="">
-              <mat-option value="social_networks">Соц. сети</mat-option>
-              <mat-option value="friends">Друзья, знакомые</mat-option>
-              <mat-option value="attending_physician">Лечащий врач</mat-option>
-              <mat-option value="advertisement">Реклама</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-  
-        <mat-form-field appearance="outline">
-          <textarea matInput placeholder="Цель визита"></textarea>
-        </mat-form-field>
-      </div>
+        </section>
+    
+        <button type="submit" class="submit-btn">Создать запись</button>
+      </form>
+      
     </section>
-  
-    <section class="sidebar-content">
-      <span class="content-title">Добавить услугу</span>
-  
-      <mat-form-field appearance="outline">
-        <mat-label>Услуга</mat-label>
-        <mat-select matNativeControl placeholder="">
-          <mat-option value="Andrologist">Андролог</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </section>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="main">
+      <button class="sidebar-btn" (click)="drawer.toggle()">Открыть</button>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
 
-    <button type="submit" class="submit-btn">Создать запись</button>
-  </form>
-  
-</section>
+

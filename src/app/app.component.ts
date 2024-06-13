@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav'; 
 
 
 
@@ -21,6 +22,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    MatSidenavModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

@@ -1,6 +1,11 @@
+mat-drawer {
+  width: 720px;
+  height: 100vh;
+}
+
 .sidebar {
   width: 720px;
-  height: 1068px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   border: 1px solid rgb(223, 223, 223);
@@ -8,6 +13,7 @@
   box-shadow: 0px 4px 20px 0px rgba(46, 59, 70, 0.2);
   background: rgb(255, 255, 255);
   align-items: center;
+  padding-bottom: 60px;
 }
 
 .sidebar-header {
@@ -34,6 +40,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 }
 
 .header-close_btn span {
@@ -120,4 +127,8 @@ mat-form-field {
   line-height: 120%;
   letter-spacing: 0px;
   text-align: center;
+}
+
+.main {
+  height: 100vh;
 }
