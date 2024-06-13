@@ -6,8 +6,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { AppDateAdapter, APP_DATE_FORMAT } from './adapters/date.adapter';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [provideNativeDateAdapter()],
+  providers: [
+    {provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMAT},
+    {provide: MAT_DATE_LOCALE, useValue: 'ru-RU'}
+  ],
 })
 export class AppComponent {}
