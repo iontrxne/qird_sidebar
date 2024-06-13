@@ -1,5 +1,5 @@
 mat-drawer {
-  width: 720px;
+  width: auto;
   height: 100vh;
 }
 
@@ -129,6 +129,19 @@ mat-form-field {
   text-align: center;
 }
 
-.main {
+main {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-btn {
+  border: none;
+  background-color:#30897f;
+  color: #fff;
+  padding: 50px 100px;
+  border-radius: 4px;
+  font-size: 20px;
+  cursor: pointer;
 }
