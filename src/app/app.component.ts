@@ -6,10 +6,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import { provideNativeDateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 
 
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD.MM.YYYY',
+  },
+  display: {
+    dateInput: 'DD.MM.YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-root',
@@ -22,12 +33,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [provideNativeDateAdapter()],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    provideNativeDateAdapter(),
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+  ],
 })
 export class AppComponent {
 

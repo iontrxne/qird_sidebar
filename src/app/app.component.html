@@ -68,12 +68,12 @@
             <div class="form-group">
               <mat-form-field appearance="outline">
                 <mat-label>Дата</mat-label>
-                <input matInput [matDatepicker]="date_of_recording">
+                <input matInput [matDatepicker]="picker">
                 <!-- <mat-icon matSuffix>clear</mat-icon> -->
-                <mat-datepicker-toggle matIconSuffix [for]="date_of_recording">
+                <mat-datepicker-toggle matIconSuffix [for]="picker">
                   <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
                 </mat-datepicker-toggle>
-                <mat-datepicker #date_of_recording></mat-datepicker>
+                <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
       
               <div class="form-subgroup">
