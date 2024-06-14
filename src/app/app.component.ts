@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,7 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { AppDateAdapter, APP_DATE_FORMAT } from './adapters/date.adapter';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +33,31 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
     {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMAT},
     {provide: MAT_DATE_LOCALE, useValue: 'ru-RU'}
   ],
-  //encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {}
+export class AppComponent {
+  genders = [
+    {value: 'male', viewValue: 'Мужской'},
+    {value: 'female', viewValue: 'Женский'},
+  ];
+
+  doctors = [
+    {value: 'novikov a.v', viewValue: 'Новиков А.В.'},
+    {value: 'smirnov v.e.', viewValue: 'Смирнов В.Е.'},
+  ];
+
+  specializations = [
+    {value: 'andrologist', viewValue: 'Андролог'},
+    {value: 'surgeon', viewValue: 'Хирург'},
+  ];
+
+  channels = [
+    {value: 'social_networks', viewValue: 'Соц. сети'},
+    {value: 'friends', viewValue: 'Друзья, знакомые'},
+    {value: 'attending_physician', viewValue: 'Лечащий врач'},
+    {value: 'advertisement', viewValue: 'Реклама'},
+  ];
+
+  services = [
+    {value: 'сonsultation', viewValue: 'Консультация'},
+  ];
+};

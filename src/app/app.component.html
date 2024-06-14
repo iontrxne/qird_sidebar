@@ -87,17 +87,15 @@
               <mat-form-field appearance="outline">
                 <!--<mat-icon>keyboard_arrow_down</mat-icon>-->
                 <mat-select 
+                  matNativeControl
                   placeholder="Пол"
                   panelClass="custom-panel"
                 >
-                  <mat-option 
-                    value="male">
-                    Мужской
-                  </mat-option>
-                  <mat-option 
-                    value="female">
-                    Женский
-                  </mat-option>
+                  @for (gender of genders; track gender.value) {
+                    <mat-option [value]="gender.value">
+                      {{gender.viewValue}}
+                    </mat-option>
+                  }
                 </mat-select>
               </mat-form-field>
             </div>
@@ -198,10 +196,11 @@
                   placeholder=""
                   panelClass="custom-panel"
                 >
-                  <mat-option 
-                    value="Novikov">
-                    Новиков А.В
+                @for (doctor of doctors; track doctor.value) {
+                  <mat-option [value]="doctor.value">
+                    {{doctor.viewValue}}
                   </mat-option>
+                } 
                 </mat-select>
               </mat-form-field>
 
@@ -214,10 +213,11 @@
                   placeholder=""
                   panelClass="custom-panel"
                 >
-                  <mat-option 
-                    value="Andrologist">
-                    Андролог
+                @for (specialization of specializations; track specialization.value) {
+                  <mat-option [value]="specialization.value">
+                    {{specialization.viewValue}}
                   </mat-option>
+                } 
                 </mat-select>
               </mat-form-field>
             </div>
@@ -232,10 +232,11 @@
                   placeholder=""
                   panelClass="custom-panel"
                 >
-                  <mat-option 
-                    value="Novikov">
-                    Новиков А.В
+                @for (doctor of doctors; track doctor.value) {
+                  <mat-option [value]="doctor.value">
+                    {{doctor.viewValue}}
                   </mat-option>
+                } 
                 </mat-select>
               </mat-form-field>
 
@@ -248,22 +249,11 @@
                   placeholder=""
                   panelClass="custom-panel"
                 >
-                  <mat-option 
-                    value="social_networks">
-                    Соц. сети
+                @for (channel of channels; track channel.value) {
+                  <mat-option [value]="channel.value">
+                    {{channel.viewValue}}
                   </mat-option>
-                  <mat-option 
-                    value="friends">
-                    Друзья, знакомые
-                  </mat-option>
-                  <mat-option 
-                    value="attending_physician">
-                    Лечащий врач
-                  </mat-option>
-                  <mat-option 
-                    value="advertisement">
-                    Реклама
-                  </mat-option>
+                } 
                 </mat-select>
               </mat-form-field>
             </div>
@@ -272,8 +262,8 @@
               <textarea 
                 matInput 
                 placeholder="Цель визита"
-                >
-              </textarea>
+                ></textarea
+              >
             </mat-form-field>
           </div>
         </section>
@@ -292,10 +282,11 @@
               placeholder=""
               panelClass="custom-panel"
             >
-              <mat-option 
-                value="Andrologist">
-                Андролог
+            @for (service of services; track service.value) {
+              <mat-option [value]="service.value">
+                {{service.viewValue}}
               </mat-option>
+            } 
             </mat-select>
           </mat-form-field>
         </section>
