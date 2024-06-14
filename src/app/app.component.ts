@@ -108,7 +108,9 @@ updateErrorMessages() {
     const errorMessage = this.errorMessages[key];
 
     if (control.hasError('pattern')) {
-      errorMessage.set('Введите корректные данные');
+      errorMessage.set(''
+        //'Некорректный ввод');  // Не помещается по дизайну
+      );
     } else {
       errorMessage.set('');
     }
