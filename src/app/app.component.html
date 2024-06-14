@@ -16,24 +16,24 @@
           <div class="content-form">
             <mat-form-field appearance="outline">
               <mat-label>Фамилия</mat-label>
-              <input matInput placeholder=" ">
+              <input type="text" matInput placeholder=" ">
             </mat-form-field>
       
             <div class="form-group">
               <mat-form-field appearance="outline">
                 <mat-label>Имя</mat-label>
-                <input matInput placeholder=" ">
+                <input type="text" matInput placeholder=" ">
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Отчетсво</mat-label>
-                <input matInput placeholder=" ">
+                <input type="text" matInput placeholder=" ">
               </mat-form-field>
             </div>
       
              <div class="form-group">
               <mat-form-field appearance="outline">
                 <mat-label>Дата рождения</mat-label>
-                <input matInput [matDatepicker]="birthday">
+                <input type="date" matInput [matDatepicker]="birthday">
                 <mat-datepicker-toggle matIconSuffix [for]="birthday">
                   <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
                 </mat-datepicker-toggle>
@@ -51,11 +51,11 @@
             <div class="form-group">
               <mat-form-field appearance="outline">
                 <mat-label>Телефон</mat-label>
-                <input matInput placeholder=" ">
+                <input type="tel" matInput placeholder=" ">
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Дополнительный телефон</mat-label>
-                <input matInput placeholder=" ">
+                <input type="tel" matInput placeholder=" ">
               </mat-form-field>
             </div>
           </div>
@@ -68,7 +68,7 @@
             <div class="form-group">
               <mat-form-field appearance="outline">
                 <mat-label>Дата</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input type="date" matInput [matDatepicker]="picker">
                 <!-- <mat-icon matSuffix>clear</mat-icon> -->
                 <mat-datepicker-toggle matSuffix [for]="picker">
                   <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
@@ -79,10 +79,10 @@
               <div class="form-subgroup">
                 <mat-form-field appearance="outline">
                   <mat-label>Начало</mat-label>
-                  <input matInput placeholder=" ">
+                  <input type="time" matInput placeholder=" ">
                 </mat-form-field><mat-form-field appearance="outline">
                   <mat-label>Конец</mat-label>
-                  <input matInput placeholder=" ">
+                  <input type="time" matInput placeholder=" ">
                 </mat-form-field>
               </div>
       
