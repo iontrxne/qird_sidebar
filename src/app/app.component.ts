@@ -33,7 +33,6 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
     {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMAT},
     {provide: MAT_DATE_LOCALE, useValue: 'ru-RU'}
   ],
+  //encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
-
-}
+export class AppComponent {}

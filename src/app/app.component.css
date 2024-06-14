@@ -152,3 +152,17 @@ main {
   font-size: 20px;
   cursor: pointer;
 }
+
+::ng-deep .custom-panel.mat-mdc-select-panel {
+  background: #fff;
+  border: 1px solid rgb(0, 19, 17);
+  border-radius: 0px 0px 4px 4px;
+  padding: 0;
+}
+
+::ng-deep .custom-panel.mat-mdc-select-panel .mat-mdc-option {
+  min-height: 0px;
+  padding: 7px 16px;
+}
+
+/*background: rgb(246, 246, 251);*/
