@@ -165,4 +165,30 @@ main {
   padding: 7px 16px;
 }
 
-/*background: rgb(246, 246, 251);*/
+.mat-mdc-option:focus.mdc-list-item, .mat-mdc-option.mat-mdc-option-active.mdc-list-item {
+  background-color: #fff
+}
+
+.mat-mdc-option.mat-mdc-option-active.mdc-list-item:hover {
+  background-color: #e3e3e4;
+}
+
+.check-adult-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.check-adult-container .selected {
+  background-color: #f0ecf4;
+  border: 1px solid rgb(63, 81, 181);
+  color: rgb(63, 81, 181);
+}
+
+.mat-mdc-outlined-button:not(:disabled) {
+  color: #000;
+}
+
+.mat-mdc-outlined-button:not(:disabled) {
+  border: 1px solid rgb(218, 218, 218);
+}

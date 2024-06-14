@@ -29,6 +29,30 @@
             Данные пациента
           </span>
       
+          <div class="check-adult-container">
+            <button 
+              mat-stroked-button 
+              [ngClass]="{'selected': selectedValue === 'adult'}" 
+              (click)="onToggleChange('adult')"
+            >
+              Взрослый
+            </button>
+            <button 
+              mat-stroked-button 
+              [ngClass]="{'selected': selectedValue === 'child'}" 
+              (click)="onToggleChange('child')"
+            >
+              Ребенок
+            </button>
+            <button 
+              mat-stroked-button 
+              [ngClass]="{'selected': selectedValue === 'incapacitated'}" 
+              (click)="onToggleChange('incapacitated')"
+            >
+              Недееспособный гражданин
+            </button>
+          </div>
+
           <div class="content-form">
             <mat-form-field appearance="outline">
               <mat-label>
