@@ -66,10 +66,10 @@ export class AppComponent {
     {value: 'сonsultation', viewValue: 'Консультация'},
   ];
 
-  selectedValue: string = '';
+  selectedPersonalityValue: string = '';
 
-  onToggleChange(value: string) {
-    this.selectedValue = value;
+  onChangePersonality(value: string) {
+    this.selectedPersonalityValue = value;
   }
 
 };
