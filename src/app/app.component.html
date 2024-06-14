@@ -54,19 +54,22 @@
           </div>
 
           <div class="content-form">
-            <mat-form-field appearance="outline">
+            <mat-form-field >
               <mat-label>
                 Фамилия
               </mat-label>
               <input 
                 type="text" 
-                matInput 
-                placeholder=" "
+                matInput
+                placeholder=""
+                [formControl]="formControls.lastName"
+                (blur)="updateErrorMessages()"
               >
+              <mat-error *ngIf="formControls.lastName.invalid">{{errorMessages.lastName()}}</mat-error>
             </mat-form-field>
       
             <div class="form-group">
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Имя
                 </mat-label>
@@ -74,22 +77,28 @@
                   type="text" 
                   matInput 
                   placeholder=""
+                  [formControl]="formControls.firstName"
+                  (blur)="updateErrorMessages()"
                 >
+                <mat-error *ngIf="formControls.firstName.invalid">{{errorMessages.firstName()}}</mat-error>
               </mat-form-field>
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
-                  Отчетсво
+                  Отчество
                 </mat-label>
                 <input 
                   type="text" 
                   matInput 
                   placeholder=""
+                  [formControl]="formControls.patronymic"
+                  (blur)="updateErrorMessages()"
                 >
+                <mat-error *ngIf="formControls.patronymic.invalid">{{errorMessages.patronymic()}}</mat-error>
               </mat-form-field>
             </div>
       
              <div class="form-group">
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Дата рождения
                 </mat-label>
@@ -108,7 +117,7 @@
                 <mat-datepicker #birthday></mat-datepicker>
               </mat-form-field>
 
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <!--<mat-icon>keyboard_arrow_down</mat-icon>-->
                 <mat-select 
                   matNativeControl
@@ -125,7 +134,7 @@
             </div>
       
             <div class="form-group">
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Телефон
                 </mat-label>
@@ -136,7 +145,7 @@
                 >
               </mat-form-field>
 
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Дополнительный телефон
                 </mat-label>
@@ -157,7 +166,7 @@
       
           <div class="content-form">
             <div class="form-group">
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Дата
                 </mat-label>
@@ -178,7 +187,7 @@
               </mat-form-field>
       
               <div class="form-subgroup">
-                <mat-form-field appearance="outline">
+                <mat-form-field>
                   <mat-label>
                     Начало
                   </mat-label>
@@ -188,7 +197,7 @@
                     placeholder=""
                   >
                 </mat-form-field>
-                <mat-form-field appearance="outline">
+                <mat-form-field>
                   <mat-label>
                     Конец
                   </mat-label>
@@ -211,7 +220,7 @@
       
           <div class="content-form">
             <div class="form-group">
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Врач
                 </mat-label>
@@ -228,7 +237,7 @@
                 </mat-select>
               </mat-form-field>
 
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Специальность
                 </mat-label>
@@ -247,7 +256,7 @@
             </div>
       
             <div class="form-group">
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Рекомендовавший врач
                 </mat-label>
@@ -264,7 +273,7 @@
                 </mat-select>
               </mat-form-field>
 
-              <mat-form-field appearance="outline">
+              <mat-form-field>
                 <mat-label>
                   Канал привлечения
                 </mat-label>
@@ -282,7 +291,7 @@
               </mat-form-field>
             </div>
       
-            <mat-form-field appearance="outline">
+            <mat-form-field>
               <textarea 
                 matInput 
                 placeholder="Цель визита"
@@ -297,7 +306,7 @@
             Добавить услугу
           </span>
       
-          <mat-form-field appearance="outline">
+          <mat-form-field>
             <mat-label>
               Услуга
             </mat-label>

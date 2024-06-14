@@ -153,6 +153,15 @@ main {
   cursor: pointer;
 }
 
+.mat-mdc-select {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
 ::ng-deep .custom-panel.mat-mdc-select-panel {
   background: #fff;
   border: 1px solid rgb(0, 19, 17);
@@ -183,12 +192,30 @@ main {
   background-color: #f0ecf4;
   border: 1px solid rgb(63, 81, 181);
   color: rgb(63, 81, 181);
+  font-size: 16px;
 }
 
 .mat-mdc-outlined-button:not(:disabled) {
   color: #000;
+  font-size: 16px;
 }
 
 .mat-mdc-outlined-button:not(:disabled) {
   border: 1px solid rgb(218, 218, 218);
+}
+
+mat-label, .mat-mdc-select-placeholder{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color:green;
+}
+/* To change mat form field border color on focus */
+:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  color: green;
 }
