@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { AppDateAdapter, APP_DATE_FORMAT } from './adapters/date.adapter';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,8 @@ import { AppDateAdapter, APP_DATE_FORMAT } from './adapters/date.adapter';
     MatFormFieldModule,
     MatDatepickerModule,
     MatSidenavModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -31,4 +34,6 @@ import { AppDateAdapter, APP_DATE_FORMAT } from './adapters/date.adapter';
     {provide: MAT_DATE_LOCALE, useValue: 'ru-RU'}
   ],
 })
-export class AppComponent {}
+export class AppComponent {
+
+}
