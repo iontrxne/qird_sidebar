@@ -116,6 +116,10 @@ mat-form-field {
   cursor: pointer;
 }
 
+input, textarea {
+  cursor: pointer;
+}
+
 .submit-btn {
   border-radius: 4px;
   background: rgb(48, 137, 127);
