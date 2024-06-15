@@ -112,15 +112,6 @@
                 >
 
                 <mat-datepicker-toggle 
-                matSuffix 
-                (click)="clearBirthdayField()"
-                >
-                  <mat-icon matDatepickerToggleIcon>
-                    clear
-                  </mat-icon>
-                </mat-datepicker-toggle>
-
-                <mat-datepicker-toggle 
                   matIconSuffix 
                   [for]="birthday"
                 >
@@ -209,9 +200,12 @@
 
                 <mat-datepicker-toggle 
                   matSuffix 
+                  *ngIf="formControls.admissionDate.value !== null"
                   (click)="clearDateField()"
                 >
-                  <mat-icon matDatepickerToggleIcon>
+                  <mat-icon matDatepickerToggleIcon
+
+                  >
                     clear
                   </mat-icon>
                 </mat-datepicker-toggle>
@@ -395,9 +389,29 @@
         <button 
           type="submit" 
           class="submit-btn"
-          (click)="createRecord()">
+          (click)="createAdmission()"
+          (click)="onChangeButtonVisible()"
+          *ngIf="SubmitButtonIsVisible === true"
+        >
+          
           Создать запись
         </button>
+        <div 
+          class="btn-status-container"
+          *ngIf="SubmitButtonIsVisible === false"
+        >
+          <button
+            class="status-btn"
+          >
+            Запись подтверждена
+          </button>
+          <button
+            (click)="onChangeButtonVisible()"
+            class="cancel-btn"
+          >
+           Отменить запись
+          </button>
+        </div>
       </form>
       
     </section>

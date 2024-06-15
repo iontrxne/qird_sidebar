@@ -114,7 +114,7 @@ export class AppComponent {
   }
 
 //Данные из форм
-  createRecord() {
+  createAdmission() {
     const formData = {
       personData: {
         personality: this.selectedPersonalityValue,
@@ -144,5 +144,13 @@ export class AppComponent {
     };
 
     console.log('Создана запись:', formData);
+  }
+
+// Кнопка записи
+
+  SubmitButtonIsVisible: boolean = true
+
+  onChangeButtonVisible() {
+    this.SubmitButtonIsVisible = !this.SubmitButtonIsVisible
   }
 }
