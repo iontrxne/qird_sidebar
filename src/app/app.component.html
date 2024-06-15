@@ -140,6 +140,8 @@
                   matNativeControl
                   placeholder="Пол"
                   panelClass="custom-panel"
+                  [(ngModel)]="selectedGender"
+                  name="gender"
                 >
                   @for (gender of genders; track gender.value) {
                     <mat-option [value]="gender.value">
@@ -238,6 +240,8 @@
                     type="time" 
                     matInput 
                     placeholder=""
+                    [(ngModel)]="selectedStartTime"
+                    name="startTime"
                   >
                 </mat-form-field>
                 <mat-form-field>
@@ -248,6 +252,8 @@
                     type="time" 
                     matInput 
                     placeholder=""
+                    [(ngModel)]="selectedEndTime"
+                    name="endTime"
                   >
                 </mat-form-field>
               </div>
@@ -271,6 +277,8 @@
                   matNativeControl 
                   placeholder=""
                   panelClass="custom-panel"
+                  [(ngModel)]="selectedDoctor" 
+                  name="doctor"
                 >
                 @for (doctor of doctors; track doctor.value) {
                   <mat-option [value]="doctor.value">
@@ -288,6 +296,8 @@
                   matNativeControl 
                   placeholder=""
                   panelClass="custom-panel"
+                  [(ngModel)]="selectedSpecialization"
+                  name="secialization"
                 >
                 @for (specialization of specializations; track specialization.value) {
                   <mat-option [value]="specialization.value">
@@ -307,6 +317,8 @@
                   matNativeControl 
                   placeholder=""
                   panelClass="custom-panel"
+                  [(ngModel)]="selectedReferringDoctor"
+                  name="ReferringDoctor"
                 >
                 <mat-option>Нет</mat-option>
                 @for (doctor of doctors; track doctor.value) {
@@ -325,6 +337,8 @@
                   matNativeControl 
                   placeholder=""
                   panelClass="custom-panel"
+                  [(ngModel)]="selectedChannel"
+                  name="channel"
                 >
                 @for (channel of channels; track channel.value) {
                   <mat-option [value]="channel.value">
@@ -342,7 +356,7 @@
               <textarea 
                 matInput 
                 placeholder=""
-                [formControl]="formControls.visitPurpose "
+                [formControl]="formControls.visitPurpose"
                 ></textarea
               >
               <mat-error *ngIf="formControls.visitPurpose.invalid">
@@ -366,6 +380,8 @@
               matNativeControl 
               placeholder=""
               panelClass="custom-panel"
+              [(ngModel)]="selectedService"
+              name="service"
             >
             @for (service of services; track service.value) {
               <mat-option [value]="service.value">
@@ -378,7 +394,8 @@
     
         <button 
           type="submit" 
-          class="submit-btn">
+          class="submit-btn"
+          (click)="createRecord()">
           Создать запись
         </button>
       </form>

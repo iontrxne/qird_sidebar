@@ -72,9 +72,19 @@ export class AppComponent {
     {value: 'сonsultation', viewValue: 'Консультация'},
   ];
 
-//Смена личности гражданина
+//Данные из полей selected
 
-  selectedPersonalityValue: string = '';
+  selectedPersonalityValue: string | null = null;
+  selectedGender: string | null = null;
+  selectedDoctor: string | null = null;
+  selectedSpecialization: string | null = null;
+  selectedReferringDoctor: string | null = null;
+  selectedChannel: string | null = null;
+  selectedService: string | null = null;
+  selectedStartTime: string | null = null;
+  selectedEndTime: string | null = null;
+
+//Смена личности гражданина
 
   onChangePersonality(value: string) {
     this.selectedPersonalityValue = value;
@@ -83,26 +93,56 @@ export class AppComponent {
 // Проверка на валидность
 
   formControls = {
-    lastName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
-    firstName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
-    patronymic: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
-    telephone: new FormControl('', Validators.minLength(10)),
+    lastName: new FormControl(null, Validators.pattern('^[А-Яа-яЁё\s]+$')),
+    firstName: new FormControl(null, Validators.pattern('^[А-Яа-яЁё\s]+$')),
+    patronymic: new FormControl(null, Validators.pattern('^[А-Яа-яЁё\s]+$')),
+    telephone: new FormControl(null, Validators.minLength(10)),
     additionalTelephone: new FormControl('', Validators.minLength(10)),
-    birthdayDate: new FormControl('', Validators.pattern('')), // Надо сделать проверку на наличие букв
-    admissionDate: new FormControl('', Validators.pattern('')), // Надо сделать проверку на наличие букв
-    visitPurpose: new FormControl('', Validators.minLength(1)),
-    startTime:  new FormControl('', Validators.required),
-    endTime:  new FormControl('', Validators.required)
+    birthdayDate: new FormControl(null, Validators.pattern('')), // Надо сделать проверку на наличие букв
+    admissionDate: new FormControl(null, Validators.pattern('')), // Надо сделать проверку на наличие букв
+    visitPurpose: new FormControl(null, Validators.minLength(1)),
   };
 
 // Очистка значения полей
 
   clearDateField() {
-    this.formControls.admissionDate.setValue('');
+    this.formControls.admissionDate.setValue(null);
   }
 
   clearBirthdayField() {
-    this.formControls.birthdayDate.setValue('');
+    this.formControls.birthdayDate.setValue(null);
   }
 
+//Данные из форм
+  createRecord() {
+    const formData = {
+      personData: {
+        personality: this.selectedPersonalityValue,
+        lastName: this.formControls.lastName.value,
+        firstName: this.formControls.firstName.value,
+        patronymic: this.formControls.patronymic.value,
+        birthdayDate: this.formControls.birthdayDate.value,
+        gender: this.selectedGender,
+        telephone: {
+          mainTelephone: this.formControls.telephone.value,
+          additionalTelephone: this.formControls.additionalTelephone.value,
+        },
+      },
+      admissionData: {
+        admissionDate: this.formControls.admissionDate.value,
+        startTime: this.selectedStartTime,
+        endTime: this.selectedEndTime,
+        service: this.selectedService
+      },
+      doctorData: {
+        doctor: this.selectedDoctor,
+        specialization: this.selectedSpecialization,
+        referringDoctor: this.selectedReferringDoctor,
+        channel: this.selectedChannel,
+        visitPurpose: this.formControls.visitPurpose.value,
+      },
+    };
+
+    console.log('Создана запись:', formData);
+  }
 }
