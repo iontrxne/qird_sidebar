@@ -12,8 +12,6 @@ import { AppDateAdapter, APP_DATE_FORMAT } from './adapters/date.adapter';
 import { FormsModule, FormControl, Validators, ReactiveFormsModule} from "@angular/forms";
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CommonModule } from '@angular/common';
-import { merge } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 
@@ -87,10 +85,12 @@ export class AppComponent {
     lastName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
     firstName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
     patronymic: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
-    telephone: new FormControl('', [Validators.pattern('^[0-9 ]*$'), Validators.minLength(10)]),
-    additionalTelephone: new FormControl('', [Validators.pattern('^[0-9 ]*$'), Validators.minLength(10)]),
-    birthdayDate: new FormControl('', 
-    //Validators.pattern('^[0-9]{2}\.[0-9]{2}\.[0-9]{4}$')
-    )
+    telephone: new FormControl('', Validators.minLength(10)),
+    additionalTelephone: new FormControl('', Validators.minLength(10)),
+    birthdayDate: new FormControl('', Validators.pattern('')), // Надо сделать проверку на наличие букв
+    admissionDate: new FormControl('', Validators.pattern('')), // Надо сделать проверку на наличие букв
+    visitPurpose: new FormControl('', Validators.minLength(1)),
+    startTime:  new FormControl('', Validators.required),
+    endTime:  new FormControl('', Validators.required)
   };
 }

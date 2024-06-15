@@ -11,12 +11,12 @@ export class AppDateAdapter extends NativeDateAdapter {
       const year = Number(str[2]);
       return new Date(year, month, date);
     }
-    const timestamp = typeof value === 'number' ? value: Date.parse(value);
+    const timestamp = typeof value === 'number' ? value : Date.parse(value);
     return isNaN(timestamp) ? null : new Date(timestamp);
   }
 
   override format(date: Date, displayFormat: string): string {
-    if(displayFormat === 'input') {
+    if (displayFormat === 'input') {
       const day = date.getDate();
       const month = date.getMonth() + 1;
       const year = date.getFullYear();
@@ -24,7 +24,7 @@ export class AppDateAdapter extends NativeDateAdapter {
     } else if (displayFormat === 'inputMonth') {
       const month = date.getMonth() + 1;
       const year = date.getFullYear();
-      return this.to2digit(month) + '.' + year
+      return this.to2digit(month) + '.' + year;
     } else {
       return date.toDateString();
     }
@@ -56,4 +56,4 @@ export const APP_DATE_FORMAT = {
       month: 'long'
     }
   }
-}
+};

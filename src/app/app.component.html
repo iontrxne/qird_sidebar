@@ -110,9 +110,6 @@
                   [matDatepicker]="birthday"
                   [formControl]="formControls.birthdayDate"
                 >
-                <mat-error *ngIf="formControls.birthdayDate.invalid">
-                  Некорректная дата рождения
-                </mat-error>
                 <mat-datepicker-toggle 
                   matIconSuffix 
                   [for]="birthday"
@@ -122,6 +119,9 @@
                   </mat-icon>
                 </mat-datepicker-toggle>
                 <mat-datepicker #birthday></mat-datepicker>
+                <mat-error *ngIf="formControls.birthdayDate.invalid">
+                  Некорректный формат даты
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field>
@@ -192,6 +192,7 @@
                 <input 
                   matInput 
                   [matDatepicker]="picker"
+                  [formControl]="formControls.admissionDate"
                 >
                 <!-- <mat-icon matSuffix>clear</mat-icon> -->
                 <mat-datepicker-toggle 
@@ -203,6 +204,9 @@
                   </mat-icon>
                 </mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="formControls.admissionDate.invalid">
+                  Некорректный формат даты
+                </mat-error>
               </mat-form-field>
       
               <div class="form-subgroup">
@@ -284,6 +288,7 @@
                   placeholder=""
                   panelClass="custom-panel"
                 >
+                <mat-option>Нет</mat-option>
                 @for (doctor of doctors; track doctor.value) {
                   <mat-option [value]="doctor.value">
                     {{doctor.viewValue}}
@@ -311,12 +316,20 @@
             </div>
       
             <mat-form-field>
+              <mat-label>
+                Цель визита
+              </mat-label>
               <textarea 
                 matInput 
-                placeholder="Цель визита"
+                placeholder=""
+                [formControl]="formControls.visitPurpose "
                 ></textarea
               >
+              <mat-error *ngIf="formControls.visitPurpose.invalid">
+                Введите цель визита
+              </mat-error>
             </mat-form-field>
+            
           </div>
         </section>
       
