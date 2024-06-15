@@ -73,6 +73,7 @@ export class AppComponent {
   ];
 
 //Смена личности гражданина
+
   selectedPersonalityValue: string = '';
 
   onChangePersonality(value: string) {
@@ -93,4 +94,15 @@ export class AppComponent {
     startTime:  new FormControl('', Validators.required),
     endTime:  new FormControl('', Validators.required)
   };
+
+// Очистка значения полей
+
+  clearDateField() {
+    this.formControls.admissionDate.setValue('');
+  }
+
+  clearBirthdayField() {
+    this.formControls.birthdayDate.setValue('');
+  }
+
 }

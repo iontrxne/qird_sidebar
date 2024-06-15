@@ -110,6 +110,16 @@
                   [matDatepicker]="birthday"
                   [formControl]="formControls.birthdayDate"
                 >
+
+                <mat-datepicker-toggle 
+                matSuffix 
+                (click)="clearBirthdayField()"
+                >
+                  <mat-icon matDatepickerToggleIcon>
+                    clear
+                  </mat-icon>
+                </mat-datepicker-toggle>
+
                 <mat-datepicker-toggle 
                   matIconSuffix 
                   [for]="birthday"
@@ -194,7 +204,16 @@
                   [matDatepicker]="picker"
                   [formControl]="formControls.admissionDate"
                 >
-                <!-- <mat-icon matSuffix>clear</mat-icon> -->
+
+                <mat-datepicker-toggle 
+                  matSuffix 
+                  (click)="clearDateField()"
+                >
+                  <mat-icon matDatepickerToggleIcon>
+                    clear
+                  </mat-icon>
+                </mat-datepicker-toggle>
+
                 <mat-datepicker-toggle 
                   matSuffix 
                   [for]="picker"
@@ -203,6 +222,7 @@
                     calendar_today
                   </mat-icon>
                 </mat-datepicker-toggle>
+
                 <mat-datepicker #picker></mat-datepicker>
                 <mat-error *ngIf="formControls.admissionDate.invalid">
                   Некорректный формат даты
