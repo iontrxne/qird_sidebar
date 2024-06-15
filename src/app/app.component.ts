@@ -86,38 +86,11 @@ export class AppComponent {
   formControls = {
     lastName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
     firstName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
-    patronymic: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$'))
+    patronymic: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
+    telephone: new FormControl('', [Validators.pattern('^[0-9 ]*$'), Validators.minLength(10)]),
+    additionalTelephone: new FormControl('', [Validators.pattern('^[0-9 ]*$'), Validators.minLength(10)]),
+    birthdayDate: new FormControl('', 
+    //Validators.pattern('^[0-9]{2}\.[0-9]{2}\.[0-9]{4}$')
+    )
   };
-  
-  errorMessages = {
-    lastName: signal(''),
-    firstName: signal(''),
-    patronymic: signal('')
-  };
-  
-  constructor() {
-    const controlsArray = Object.values(this.formControls).flatMap(control => [
-      control.statusChanges,
-      control.valueChanges
-    ]);
-  
-  merge(...controlsArray)
-    .pipe(takeUntilDestroyed())
-    .subscribe(() => this.updateErrorMessages());
-  }
-
-  updateErrorMessages() {
-    (Object.keys(this.formControls) as (keyof typeof this.formControls)[]).forEach(key => {
-      const control = this.formControls[key];
-      const errorMessage = this.errorMessages[key];
-
-      if (control.hasError('pattern')) {
-        errorMessage.set(''
-          //'Некорректный ввод');  // Не помещается по дизайну
-        );
-      } else {
-        errorMessage.set('');
-      }
-    });
-  }
 }

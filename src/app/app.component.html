@@ -63,11 +63,12 @@
                 matInput
                 placeholder=""
                 [formControl]="formControls.lastName"
-                (blur)="updateErrorMessages()"
               >
-              <mat-error *ngIf="formControls.lastName.invalid">{{errorMessages.lastName()}}</mat-error>
+              <mat-error *ngIf="formControls.lastName.hasError('pattern')">
+                Некорректная фамилия
+              </mat-error>
             </mat-form-field>
-      
+
             <div class="form-group">
               <mat-form-field>
                 <mat-label>
@@ -78,9 +79,10 @@
                   matInput 
                   placeholder=""
                   [formControl]="formControls.firstName"
-                  (blur)="updateErrorMessages()"
                 >
-                <mat-error *ngIf="formControls.firstName.invalid">{{errorMessages.firstName()}}</mat-error>
+                <mat-error *ngIf="formControls.firstName.invalid">
+                  Некорректное имя
+                </mat-error>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>
@@ -91,9 +93,10 @@
                   matInput 
                   placeholder=""
                   [formControl]="formControls.patronymic"
-                  (blur)="updateErrorMessages()"
                 >
-                <mat-error *ngIf="formControls.patronymic.invalid">{{errorMessages.patronymic()}}</mat-error>
+                <mat-error *ngIf="formControls.patronymic.invalid">
+                  Некорректное отчество
+                </mat-error>
               </mat-form-field>
             </div>
       
@@ -105,7 +108,11 @@
                 <input 
                   matInput 
                   [matDatepicker]="birthday"
+                  [formControl]="formControls.birthdayDate"
                 >
+                <mat-error *ngIf="formControls.birthdayDate.invalid">
+                  Некорректная дата рождения
+                </mat-error>
                 <mat-datepicker-toggle 
                   matIconSuffix 
                   [for]="birthday"
@@ -144,7 +151,11 @@
                   placeholder="+7 "
                   mask="000 000 00 00"
                   prefix="+7 "
+                  [formControl]="formControls.telephone"
                 >
+                <mat-error *ngIf="formControls.telephone.invalid">
+                  Некорректный телефон
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field>
@@ -157,7 +168,11 @@
                   placeholder="+7 "
                   mask="000 000 00 00"
                   prefix="+7 "
+                  [formControl]="formControls.additionalTelephone"
                 >
+                <mat-error *ngIf="formControls.additionalTelephone.invalid">
+                  Некорректный телефон
+                </mat-error>
               </mat-form-field>
             </div>
           </div>
