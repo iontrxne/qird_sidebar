@@ -14,6 +14,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CommonModule } from '@angular/common';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 
 @Component({
@@ -32,6 +33,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     ReactiveFormsModule,
     MatButtonToggleModule,
     CommonModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -39,7 +42,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     {provide: DateAdapter, useClass: AppDateAdapter},
     {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMAT},
     {provide: MAT_DATE_LOCALE, useValue: 'ru-RU'},
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
+    provideNgxMask()
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -101,12 +105,12 @@ export class AppComponent {
     .pipe(takeUntilDestroyed())
     .subscribe(() => this.updateErrorMessages());
   }
-  
+
   updateErrorMessages() {
     (Object.keys(this.formControls) as (keyof typeof this.formControls)[]).forEach(key => {
       const control = this.formControls[key];
       const errorMessage = this.errorMessages[key];
-    
+
       if (control.hasError('pattern')) {
         errorMessage.set(''
           //'Некорректный ввод');  // Не помещается по дизайну
