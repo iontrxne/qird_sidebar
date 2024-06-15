@@ -212,10 +212,3 @@ mat-label, .mat-mdc-select-placeholder{
   text-align: left;
 }
 
-:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-  color:green;
-}
-/* To change mat form field border color on focus */
-:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
-  color: green;
-}

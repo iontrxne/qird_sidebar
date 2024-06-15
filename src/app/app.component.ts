@@ -79,41 +79,41 @@ export class AppComponent {
 
 // Проверка на валидность
 
-formControls = {
-  lastName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
-  firstName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
-  patronymic: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$'))
-};
-
-errorMessages = {
-  lastName: signal(''),
-  firstName: signal(''),
-  patronymic: signal('')
-};
-
-constructor() {
-  const controlsArray = Object.values(this.formControls).flatMap(control => [
-    control.statusChanges,
-    control.valueChanges
-  ]);
-
+  formControls = {
+    lastName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
+    firstName: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$')),
+    patronymic: new FormControl('', Validators.pattern('^[А-Яа-яЁё\s]+$'))
+  };
+  
+  errorMessages = {
+    lastName: signal(''),
+    firstName: signal(''),
+    patronymic: signal('')
+  };
+  
+  constructor() {
+    const controlsArray = Object.values(this.formControls).flatMap(control => [
+      control.statusChanges,
+      control.valueChanges
+    ]);
+  
   merge(...controlsArray)
     .pipe(takeUntilDestroyed())
     .subscribe(() => this.updateErrorMessages());
-}
-
-updateErrorMessages() {
-  (Object.keys(this.formControls) as (keyof typeof this.formControls)[]).forEach(key => {
-    const control = this.formControls[key];
-    const errorMessage = this.errorMessages[key];
-
-    if (control.hasError('pattern')) {
-      errorMessage.set(''
-        //'Некорректный ввод');  // Не помещается по дизайну
-      );
-    } else {
-      errorMessage.set('');
-    }
-  });
-}
+  }
+  
+  updateErrorMessages() {
+    (Object.keys(this.formControls) as (keyof typeof this.formControls)[]).forEach(key => {
+      const control = this.formControls[key];
+      const errorMessage = this.errorMessages[key];
+    
+      if (control.hasError('pattern')) {
+        errorMessage.set(''
+          //'Некорректный ввод');  // Не помещается по дизайну
+        );
+      } else {
+        errorMessage.set('');
+      }
+    });
+  }
 }
