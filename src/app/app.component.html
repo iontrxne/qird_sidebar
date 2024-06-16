@@ -122,9 +122,9 @@
                   </mat-icon>
                 </mat-datepicker-toggle>
                 <mat-datepicker #birthday></mat-datepicker>
-                <mat-error *ngIf="formControls.birthdayDate.invalid">
+            <!--<mat-error *ngIf="formControls.birthdayDate.invalid">
                   Некорректный формат даты
-                </mat-error>
+                </mat-error>-->
               </mat-form-field>
 
               <mat-form-field>
@@ -204,15 +204,12 @@
                   [matDatepicker]="picker"
                   [formControl]="formControls.admissionDate"
                 >
-
                 <mat-datepicker-toggle 
                   matSuffix 
                   *ngIf="formControls.admissionDate.value !== null"
                   (click)="onClearDateField()"
                 >
-                  <mat-icon matDatepickerToggleIcon
-
-                  >
+                  <mat-icon matDatepickerToggleIcon>
                     clear
                   </mat-icon>
                 </mat-datepicker-toggle>
@@ -227,9 +224,9 @@
                 </mat-datepicker-toggle>
 
                 <mat-datepicker #picker></mat-datepicker>
-                <mat-error *ngIf="formControls.admissionDate.invalid">
+            <!--<mat-error *ngIf="formControls.admissionDate.invalid">
                   Некорректный формат даты
-                </mat-error>
+                </mat-error>-->
               </mat-form-field>
       
               <div class="form-subgroup">
