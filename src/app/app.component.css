@@ -24,7 +24,7 @@ mat-drawer {
   justify-content: space-between;
   align-items: center;
   padding: 16px 60px;
-  border-bottom: 1px solid rgb(223, 223, 223);
+  border: 1px solid rgb(223, 223, 223);
   background: rgb(247, 247, 247);
 }
 
