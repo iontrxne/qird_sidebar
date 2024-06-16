@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+* { box-sizing: border-box; font-family: 'inter'; }
 html, body { height: 100%; }
 body { margin: 0; font-family: 'inter', "Helvetica Neue", sans-serif; }
-* { box-sizing: border-box; font-family: 'inter'; }
 
 html {
   --mat-sidenav-container-shape: 4px;
