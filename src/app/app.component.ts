@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,9 +10,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { AppDateAdapter, APP_DATE_FORMAT } from './adapters/date.adapter';
 import { FormsModule, FormControl, Validators, ReactiveFormsModule} from "@angular/forms";
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CommonModule } from '@angular/common';
-import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 
 @Component({
@@ -29,10 +28,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonToggleModule,
     CommonModule,
     NgxMaskDirective,
-    NgxMaskPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -105,15 +102,19 @@ export class AppComponent {
 
 // Очистка значения полей
 
-  clearDateField() {
+  onClearDateField() {
     this.formControls.admissionDate.setValue(null);
   }
 
-  clearBirthdayField() {
-    this.formControls.birthdayDate.setValue(null);
+  onClearDoctorField() {
+    this.selectedDoctor = null;
   }
 
-//Данные из форм
+  onClearSpecializationField() {
+    this.selectedSpecialization = null;
+  }
+
+//Собрать данные из формы
   createAdmission() {
     const formData = {
       personData: {
@@ -147,18 +148,9 @@ export class AppComponent {
   }
 
 // Кнопка записи
-
   SubmitButtonIsVisible: boolean = true
 
   onChangeButtonVisible() {
     this.SubmitButtonIsVisible = !this.SubmitButtonIsVisible
-  }
-
-  onClearDoctorField() {
-    this.selectedDoctor = null;
-  }
-
-  onClearSpecializationField() {
-    this.selectedSpecialization = null;
   }
 }

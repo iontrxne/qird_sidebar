@@ -2,10 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'inter', "Helvetica Neue", sans-serif; }
-* {
-  box-sizing: border-box;
-  font-family: 'inter';
-}
+* { box-sizing: border-box; font-family: 'inter'; }
 
 html {
   --mat-sidenav-container-shape: 4px;
