@@ -1,3 +1,6 @@
+::ng-deep html {
+
+}
 mat-drawer {
   width: auto;
   height: 100vh;
@@ -243,11 +246,17 @@ mat-label, .mat-mdc-select-placeholder{
 
 .status-btn {
   background: rgba(48, 137, 127, 0.1);
-  color: rgb(48, 137, 127);;
+  color: rgb(48, 137, 127);
 }
 
 .status-btn:hover {
   background: rgba(48, 137, 127, 0.3);
+}
+
+.status-btn-content {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .cancel-btn {
@@ -257,4 +266,8 @@ mat-label, .mat-mdc-select-placeholder{
 
 .cancel-btn:hover {
   background: rgb(255, 61, 61);
+}
+
+::ng-deep .mat-datepicker-content {
+  border: #000 1px solid;
 }

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'inter', "Helvetica Neue", sans-serif; }
 * {
   box-sizing: border-box;
   font-family: 'inter';
@@ -9,4 +9,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html {
   --mat-sidenav-container-shape: 4px;
+  --mdc-outlined-text-field-caret-color: rgb(0, 19, 17);
+  --mat-datepicker-calendar-container-background-color: #fff;
+  --mat-datepicker-calendar-container-shape: 4px;
+  --mat-datepicker-calendar-date-selected-state-background-color: #388c7c;
+  --mat-datepicker-calendar-date-today-outline-color: #388c7c;
+  --mat-datepicker-calendar-date-today-selected-state-outline-color: #2c645a;
+  --mat-select-enabled-arrow-color: #fff;
+  --mat-select-focused-arrow-color: #fff;
 }

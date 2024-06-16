@@ -153,4 +153,12 @@ export class AppComponent {
   onChangeButtonVisible() {
     this.SubmitButtonIsVisible = !this.SubmitButtonIsVisible
   }
+
+  onClearDoctorField() {
+    this.selectedDoctor = null;
+  }
+
+  onClearSpecializationField() {
+    this.selectedSpecialization = null;
+  }
 }
