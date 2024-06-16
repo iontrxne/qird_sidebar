@@ -350,7 +350,6 @@
                   [(ngModel)]="selectedReferringDoctor"
                   name="ReferringDoctor"
                 >
-                <mat-option>Нет</mat-option>
                 @for (doctor of doctors; track doctor.value) {
                   <mat-option [value]="doctor.value">
                     {{doctor.viewValue}}

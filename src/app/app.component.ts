@@ -118,18 +118,18 @@ export class AppComponent {
     const formData = {
       personData: {
         personality: this.selectedPersonalityValue,
-        lastName: this.formControls.lastName.value,
-        firstName: this.formControls.firstName.value,
+        surname: this.formControls.lastName.value,
+        name: this.formControls.firstName.value,
         patronymic: this.formControls.patronymic.value,
-        birthdayDate: this.formControls.birthdayDate.value,
+        birthday: this.formControls.birthdayDate.value,
         gender: this.selectedGender,
         telephone: {
-          mainTelephone: this.formControls.telephone.value,
-          additionalTelephone: this.formControls.additionalTelephone.value,
+          main: this.formControls.telephone.value,
+          additional: this.formControls.additionalTelephone.value,
         },
       },
       admissionData: {
-        admissionDate: this.formControls.admissionDate.value,
+        date: this.formControls.admissionDate.value,
         startTime: this.selectedStartTime,
         endTime: this.selectedEndTime,
         service: this.selectedService
